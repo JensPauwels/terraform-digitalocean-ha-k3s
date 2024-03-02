@@ -11,7 +11,7 @@ variable "ssh_key_fingerprints" {
 variable "region" {
   type        = string
   description = "Region in which to deploy the cluster. Default is fra1 (Frankfurt, Germany)"
-  default     = "fra1"
+  default     = "ams2"
   validation {
     condition     = length(regexall("^nyc1|sfo1|nyc2|ams2|sgp1|lon1|nyc3|ams3|fra1|tor1|sfo2|blr1|sfo3$", var.region)) > 0
     error_message = "Invalid region. Valid regions are nyc1, sfo1, nyc2, ams2, sgp1, lon1, nyc3, ams3, fra1, tor1, sfo2, blr1 or sfo3."
