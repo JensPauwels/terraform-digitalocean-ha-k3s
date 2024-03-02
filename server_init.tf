@@ -7,13 +7,13 @@ resource "digitalocean_droplet" "k3s_server_init" {
   region     = var.region
   size       = var.server_size
   monitoring = true
-  vpc_uuid   = digitalocean_vpc.k3s_vpc.id
+  vpc_uuid   = digitalocean_vpc.k3s_vpc_2.id
   ssh_keys   = var.ssh_key_fingerprints
   user_data = templatefile("${path.module}/user_data/ks3_server_init.sh", {
     k3s_channel         = var.k3s_channel
     k3s_token           = random_password.k3s_token.result
     do_token            = var.do_token
-    do_cluster_vpc_id   = digitalocean_vpc.k3s_vpc.id
+    do_cluster_vpc_id   = digitalocean_vpc.k3s_vpc_2.id
     do_ccm_fw_name      = digitalocean_firewall.ccm_firewall.name
     do_ccm_fw_tags      = local.ccm_fw_tags
     flannel_backend     = var.flannel_backend

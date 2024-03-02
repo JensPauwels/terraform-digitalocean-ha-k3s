@@ -7,7 +7,7 @@ resource "digitalocean_droplet" "k3s_agent" {
   region     = var.region
   size       = var.agent_size
   monitoring = true
-  vpc_uuid   = digitalocean_vpc.k3s_vpc.id
+  vpc_uuid   = digitalocean_vpc.k3s_vpc_2.id
   ssh_keys   = var.ssh_key_fingerprints
   user_data = templatefile("${path.module}/user_data/k3s_agent.sh", {
     k3s_channel = var.k3s_channel

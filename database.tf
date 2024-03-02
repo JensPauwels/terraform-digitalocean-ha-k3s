@@ -9,7 +9,7 @@ resource "digitalocean_database_cluster" "k3s" {
   version              = var.database_engine == "postgres" ? "11" : "8"
   size                 = var.database_size
   region               = var.region
-  private_network_uuid = digitalocean_vpc.k3s_vpc.id
+  private_network_uuid = digitalocean_vpc.k3s_vpc_2.id
   node_count           = var.database_node_count
 }
 
